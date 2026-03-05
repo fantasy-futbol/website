@@ -103,7 +103,7 @@ export default function Home() {
 
           <FadeInSection delay={0.2}>
             <p className="text-xl md:text-2xl text-[#828282] mb-10 max-w-3xl mx-auto">
-              Draft entire clubs from Europe's top 5 leagues. Earn points across every competition — leagues, cups, and Champions League nights.
+              Draft entire clubs from Europe's top 5 leagues. Earn points across every competition - leagues, cups, and Champions League nights.
             </p>
           </FadeInSection>
 
@@ -288,7 +288,7 @@ export default function Home() {
           </FadeInSection>
 
           <FadeInSection delay={0.3}>
-            <p className="text-[#828282] mb-6">Android coming soon — join the waitlist</p>
+            <p className="text-[#828282] mb-6">Android coming soon - join the waitlist</p>
             <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-4">
               <input
                 type="email"

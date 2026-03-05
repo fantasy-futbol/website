@@ -24,7 +24,6 @@ export async function POST(request: NextRequest) {
     const resendAudienceId = process.env.RESEND_AUDIENCE_ID;
 
     if (!resendApiKey || !resendAudienceId) {
-      console.error('Missing RESEND_API_KEY or RESEND_AUDIENCE_ID environment variables');
       return NextResponse.json(
         { success: false, error: 'Server configuration error' },
         { status: 500 }
@@ -49,7 +48,6 @@ export async function POST(request: NextRequest) {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      console.error('Resend API error:', response.status, errorData);
 
       // Handle duplicate email (Resend returns 400 for duplicates)
       if (response.status === 400 && errorData.message?.includes('already exists')) {
@@ -65,8 +63,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const data = await response.json();
-    console.log('Successfully added contact to Resend:', data);
+    await response.json();
 
     return NextResponse.json(
       { success: true, message: 'Successfully joined waitlist' },
@@ -74,7 +71,6 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error('Waitlist API error:', error);
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
