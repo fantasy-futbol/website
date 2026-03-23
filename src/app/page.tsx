@@ -74,14 +74,22 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="text-2xl font-bold">Fantasy Fútbol</div>
-          <a
-            href="https://apps.apple.com/app/id6755744058"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#00FF87] text-[#1E1E1E] px-6 py-2 rounded-full font-semibold hover:bg-[#00FF87]/90 transition-colors text-sm md:text-base"
-          >
-            Download App
-          </a>
+          <div className="flex items-center gap-6">
+            <a
+              href="/knowledge-hub"
+              className="hidden md:block text-[#828282] hover:text-white transition-colors text-sm font-medium"
+            >
+              Learn the Game
+            </a>
+            <a
+              href="https://apps.apple.com/app/id6755744058"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#00FF87] text-[#1E1E1E] px-6 py-2 rounded-full font-semibold hover:bg-[#00FF87]/90 transition-colors text-sm md:text-base"
+            >
+              Download App
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -202,6 +210,15 @@ export default function Home() {
               </div>
             </FadeInSection>
           </div>
+
+          <FadeInSection delay={0.4}>
+            <p className="text-center mt-16 text-[#828282]">
+              Want the full breakdown?{' '}
+              <a href="/knowledge-hub" className="text-[#00FF87] hover:text-white transition-colors">
+                Explore the Knowledge Hub →
+              </a>
+            </p>
+          </FadeInSection>
         </div>
       </section>
 
