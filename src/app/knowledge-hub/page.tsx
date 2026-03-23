@@ -61,7 +61,7 @@ export default function KnowledgeHubPage() {
               <div className="text-[#828282] text-xs mt-2">Response within 24–48 hours</div>
             </a>
             <a
-              href="https://discord.gg/your-invite-link"
+              href="https://discord.gg/u64YjhFhM5"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#2A2A2A] rounded-2xl p-6 hover:bg-[#333333] transition-colors group"
