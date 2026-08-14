@@ -4,7 +4,10 @@ export const SUBSTACK_URL = 'https://fantasyfutbol.substack.com';
 export const SUBSTACK_FEED_URL = `${SUBSTACK_URL}/feed`;
 export const SUBSTACK_EMBED_URL = `${SUBSTACK_URL}/embed`;
 
-export const DEMO_VIDEO_EMBED_URL = 'https://www.youtube.com/embed/qCZZ5tfWxl0';
+export const DEMO_VIDEO_ID = 'qCZZ5tfWxl0';
+export const DEMO_VIDEO_EMBED_URL = `https://www.youtube.com/embed/${DEMO_VIDEO_ID}`;
+// oar2.jpg is the vertical (9:16) thumbnail YouTube generates for Shorts.
+export const DEMO_VIDEO_THUMBNAIL_URL = `https://i.ytimg.com/vi/${DEMO_VIDEO_ID}/oar2.jpg`;
 
 export interface SocialLink {
   name: string;

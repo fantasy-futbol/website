@@ -3,10 +3,10 @@ import FadeInSection from '@/components/home/FadeInSection';
 import Navbar from '@/components/home/Navbar';
 import PhoneFrame from '@/components/home/PhoneFrame';
 import SocialLinks from '@/components/home/SocialLinks';
+import VideoFacade from '@/components/home/VideoFacade';
 import WaitlistForm from '@/components/home/WaitlistForm';
 import {
   APP_STORE_URL,
-  DEMO_VIDEO_EMBED_URL,
   SUBSTACK_EMBED_URL,
   SUBSTACK_URL,
 } from '@/lib/links';
@@ -25,11 +25,16 @@ export default async function Home() {
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-16 overflow-hidden">
-        {/* Animated gradient background */}
+        {/* Gradient background: static radial gradients on mobile (blur +
+            mix-blend + infinite pulse are GPU killers on phones), animated
+            blobs on md+ */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00FF87] rounded-full mix-blend-multiply filter blur-[128px] animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-green-900 rounded-full mix-blend-multiply filter blur-[128px] animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-emerald-800 rounded-full mix-blend-multiply filter blur-[128px] animate-pulse delay-500"></div>
+          <div className="absolute inset-0 md:hidden bg-[radial-gradient(ellipse_at_28%_30%,rgba(0,255,135,0.55),transparent_55%),radial-gradient(ellipse_at_75%_40%,rgba(20,83,45,0.6),transparent_55%),radial-gradient(ellipse_at_40%_75%,rgba(6,95,70,0.6),transparent_55%)]"></div>
+          <div className="hidden md:block">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00FF87] rounded-full mix-blend-multiply filter blur-[128px] animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-green-900 rounded-full mix-blend-multiply filter blur-[128px] animate-pulse delay-1000"></div>
+            <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-emerald-800 rounded-full mix-blend-multiply filter blur-[128px] animate-pulse delay-500"></div>
+          </div>
         </div>
 
         <div className="relative max-w-6xl mx-auto z-10 grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center">
@@ -92,15 +97,7 @@ export default async function Home() {
 
           <FadeInSection delay={0.2}>
             <PhoneFrame className="w-64 sm:w-72 mx-auto aspect-[9/16]">
-              <iframe
-                src={DEMO_VIDEO_EMBED_URL}
-                title="Fantasy Fútbol app demo"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                referrerPolicy="strict-origin-when-cross-origin"
-                className="absolute inset-0 w-full h-full border-0"
-              />
+              <VideoFacade />
             </PhoneFrame>
           </FadeInSection>
         </div>
