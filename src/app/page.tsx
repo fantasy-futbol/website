@@ -1,100 +1,30 @@
-'use client';
+import Link from 'next/link';
+import FadeInSection from '@/components/home/FadeInSection';
+import Navbar from '@/components/home/Navbar';
+import PhoneFrame from '@/components/home/PhoneFrame';
+import SocialLinks from '@/components/home/SocialLinks';
+import WaitlistForm from '@/components/home/WaitlistForm';
+import {
+  APP_STORE_URL,
+  DEMO_VIDEO_EMBED_URL,
+  SUBSTACK_EMBED_URL,
+  SUBSTACK_URL,
+} from '@/lib/links';
+import { getLatestPosts } from '@/lib/substack';
 
-import { useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+// Placeholder — drop the real app screenshot at public/hero-screenshot.webp
+// (same filename = no code change needed).
+const HERO_SCREENSHOT = '/hero-screenshot.webp';
 
-// Animation wrapper component
-function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.6, delay }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export default function Home() {
-  const [email, setEmail] = useState('');
-  const [navbarBlur, setNavbarBlur] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-
-  // Handle scroll for navbar blur
-  if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', () => {
-      setNavbarBlur(window.scrollY > 50);
-    });
-  }
-
-  const handleWaitlistSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setMessage(null);
-
-    try {
-      const response = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setMessage({ type: 'success', text: 'Thanks for joining the waitlist!' });
-        setEmail('');
-      } else {
-        setMessage({ type: 'error', text: data.error || 'Something went wrong. Please try again.' });
-      }
-    } catch (error) {
-      console.error('Error submitting waitlist:', error);
-      setMessage({ type: 'error', text: 'Network error. Please try again.' });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+export default async function Home() {
+  const posts = await getLatestPosts();
 
   return (
     <div className="bg-[#1E1E1E] text-white">
-      {/* NAVBAR */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          navbarBlur ? 'bg-[#1E1E1E]/80 backdrop-blur-md' : 'bg-transparent'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold">Fantasy Fútbol</div>
-          <div className="flex items-center gap-6">
-            <a
-              href="/knowledge-hub"
-              className="hidden md:block text-[#828282] hover:text-white transition-colors text-sm font-medium"
-            >
-              Learn the Game
-            </a>
-            <a
-              href="https://apps.apple.com/app/id6755744058"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#00FF87] text-[#1E1E1E] px-6 py-2 rounded-full font-semibold hover:bg-[#00FF87]/90 transition-colors text-sm md:text-base"
-            >
-              Download App
-            </a>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-16 overflow-hidden">
         {/* Animated gradient background */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00FF87] rounded-full mix-blend-multiply filter blur-[128px] animate-pulse"></div>
@@ -102,36 +32,76 @@ export default function Home() {
           <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-emerald-800 rounded-full mix-blend-multiply filter blur-[128px] animate-pulse delay-500"></div>
         </div>
 
-        <div className="relative max-w-4xl mx-auto text-center z-10">
-          <FadeInSection>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Fantasy Soccer, Finally Done Right.
-            </h1>
-          </FadeInSection>
+        <div className="relative max-w-6xl mx-auto z-10 grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center">
+          <div className="text-center lg:text-left">
+            <FadeInSection>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Fantasy Soccer, Finally Done Right.
+              </h1>
+            </FadeInSection>
 
-          <FadeInSection delay={0.2}>
-            <p className="text-xl md:text-2xl text-[#828282] mb-10 max-w-3xl mx-auto">
-              Draft entire clubs from Europe's top 5 leagues. Earn points across every competition - leagues, cups, and Champions League nights.
+            <FadeInSection delay={0.2}>
+              <p className="text-xl md:text-2xl text-[#828282] mb-10 max-w-3xl mx-auto lg:mx-0">
+                Draft entire clubs from Europe&apos;s top 5 leagues. Earn points across every competition - leagues, cups, and Champions League nights.
+              </p>
+            </FadeInSection>
+
+            <FadeInSection delay={0.4}>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
+                <a
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#00FF87] text-[#1E1E1E] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#00FF87]/90 transition-all hover:scale-105"
+                >
+                  Download on the App Store
+                </a>
+                <a
+                  href="#waitlist"
+                  className="text-[#00FF87] hover:text-white transition-colors"
+                >
+                  Join the Android waitlist →
+                </a>
+              </div>
+            </FadeInSection>
+          </div>
+
+          <FadeInSection delay={0.3}>
+            <PhoneFrame className="w-56 sm:w-64 lg:w-72 mx-auto aspect-[9/19.5]">
+              <img
+                src={HERO_SCREENSHOT}
+                alt="Fantasy Fútbol app screenshot"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </PhoneFrame>
+          </FadeInSection>
+        </div>
+      </section>
+
+      {/* SEE IT IN ACTION */}
+      <section className="py-24 px-6 bg-[#171717]">
+        <div className="max-w-4xl mx-auto text-center">
+          <FadeInSection>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              See it in action.
+            </h2>
+            <p className="text-[#828282] text-xl mb-12">
+              From draft night to matchday - a tour of the app.
             </p>
           </FadeInSection>
 
-          <FadeInSection delay={0.4}>
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <a
-                href="https://apps.apple.com/app/id6755744058"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#00FF87] text-[#1E1E1E] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#00FF87]/90 transition-all hover:scale-105"
-              >
-                Download on the App Store
-              </a>
-              <a
-                href="#waitlist"
-                className="text-[#00FF87] hover:text-white transition-colors"
-              >
-                Join the Android waitlist →
-              </a>
-            </div>
+          <FadeInSection delay={0.2}>
+            <PhoneFrame className="w-64 sm:w-72 mx-auto aspect-[9/16]">
+              <iframe
+                src={DEMO_VIDEO_EMBED_URL}
+                title="Fantasy Fútbol app demo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="absolute inset-0 w-full h-full border-0"
+              />
+            </PhoneFrame>
           </FadeInSection>
         </div>
       </section>
@@ -156,14 +126,14 @@ export default function Home() {
             <FadeInSection delay={0.2}>
               <div className="bg-[#2A2A2A] p-8 rounded-2xl">
                 <div className="text-[#00FF87] text-4xl mb-4">❌</div>
-                <p className="text-xl">Cup matches don't count anywhere</p>
+                <p className="text-xl">Cup matches don&apos;t count anywhere</p>
               </div>
             </FadeInSection>
 
             <FadeInSection delay={0.3}>
               <div className="bg-[#2A2A2A] p-8 rounded-2xl">
                 <div className="text-[#00FF87] text-4xl mb-4">❌</div>
-                <p className="text-xl">You're drafting players, not teams</p>
+                <p className="text-xl">You&apos;re drafting players, not teams</p>
               </div>
             </FadeInSection>
           </div>
@@ -171,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-24 px-6 bg-[#171717]">
+      <section id="how-it-works" className="py-24 px-6 bg-[#171717] scroll-mt-16">
         <div className="max-w-6xl mx-auto">
           <FadeInSection>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-20">
@@ -214,9 +184,9 @@ export default function Home() {
           <FadeInSection delay={0.4}>
             <p className="text-center mt-16 text-[#828282]">
               Want the full breakdown?{' '}
-              <a href="/knowledge-hub" className="text-[#00FF87] hover:text-white transition-colors">
+              <Link href="/knowledge-hub" className="text-[#00FF87] hover:text-white transition-colors">
                 Explore the Knowledge Hub →
-              </a>
+              </Link>
             </p>
           </FadeInSection>
         </div>
@@ -280,8 +250,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* THE COMMISSIONER'S REPORT */}
+      <section className="py-24 px-6 bg-[#171717]">
+        <div className="max-w-6xl mx-auto">
+          <FadeInSection>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+              The Commissioner&apos;s Report
+            </h2>
+            <p className="text-[#828282] text-xl text-center mb-16">
+              News, strategy, and game updates from the First Commissioner.
+            </p>
+          </FadeInSection>
+
+          {posts.length > 0 ? (
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {posts.map((post, index) => (
+                <FadeInSection key={post.link} delay={0.1 * (index + 1)}>
+                  <a
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col h-full bg-[#2A2A2A] p-8 rounded-2xl hover:bg-[#333333] transition-colors"
+                  >
+                    {post.date && (
+                      <time className="text-sm text-[#828282] mb-3">{post.date}</time>
+                    )}
+                    <h3 className="text-xl font-bold mb-4 flex-1">{post.title}</h3>
+                    <span className="text-[#00FF87] text-sm font-medium">
+                      Read on Substack →
+                    </span>
+                  </a>
+                </FadeInSection>
+              ))}
+            </div>
+          ) : (
+            <FadeInSection>
+              <p className="text-center text-[#828282] mb-16">
+                <a
+                  href={SUBSTACK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#00FF87] hover:text-white transition-colors"
+                >
+                  Read the latest on Substack →
+                </a>
+              </p>
+            </FadeInSection>
+          )}
+
+          <FadeInSection delay={0.4}>
+            <div className="max-w-md mx-auto text-center">
+              <h3 className="text-xl font-bold mb-4">Follow the Commissioner&apos;s Report</h3>
+              <iframe
+                src={SUBSTACK_EMBED_URL}
+                title="Subscribe to the Commissioner's Report on Substack"
+                loading="lazy"
+                className="w-full h-[150px] rounded-2xl border border-[#2A2A2A]"
+              />
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
+      {/* JOIN THE COMMUNITY */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <FadeInSection>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Join the community.
+            </h2>
+            <p className="text-[#828282] text-xl mb-12">
+              Banter, highlights, and game updates - wherever you hang out.
+            </p>
+          </FadeInSection>
+
+          <FadeInSection delay={0.2}>
+            <SocialLinks variant="strip" />
+          </FadeInSection>
+        </div>
+      </section>
+
       {/* DOWNLOAD CTA */}
-      <section id="waitlist" className="py-24 px-6 bg-[#171717]">
+      <section id="waitlist" className="py-24 px-6 bg-[#171717] scroll-mt-16">
         <div className="max-w-2xl mx-auto text-center">
           <FadeInSection>
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
@@ -291,7 +341,7 @@ export default function Home() {
 
           <FadeInSection delay={0.2}>
             <a
-              href="https://apps.apple.com/app/id6755744058"
+              href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mb-12"
@@ -305,30 +355,8 @@ export default function Home() {
           </FadeInSection>
 
           <FadeInSection delay={0.3}>
-            <p className="text-[#828282] mb-6">Android coming soon - join the waitlist</p>
-            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-4">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                disabled={isSubmitting}
-                className="flex-1 px-6 py-3 bg-[#2A2A2A] border border-[#3A3A3A] rounded-full text-white placeholder-[#828282] focus:outline-none focus:border-[#00FF87] disabled:opacity-50 disabled:cursor-not-allowed"
-              />
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-[#00FF87] text-[#1E1E1E] px-8 py-3 rounded-full font-bold hover:bg-[#00FF87]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Joining...' : 'Join Waitlist'}
-              </button>
-            </form>
-            {message && (
-              <p className={`text-sm ${message.type === 'success' ? 'text-[#00FF87]' : 'text-red-400'}`}>
-                {message.text}
-              </p>
-            )}
+            <p className="text-[#828282] mb-6">On Android? Get notified at launch.</p>
+            <WaitlistForm />
           </FadeInSection>
         </div>
       </section>
@@ -342,11 +370,19 @@ export default function Home() {
               <a href="#how-it-works" className="hover:text-white transition-colors">
                 How It Works
               </a>
-              <a href="/knowledge-hub" className="hover:text-white transition-colors">
+              <Link href="/knowledge-hub" className="hover:text-white transition-colors">
                 Knowledge Hub
+              </Link>
+              <a
+                href={SUBSTACK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Substack
               </a>
               <a
-                href="https://apps.apple.com/app/id6755744058"
+                href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
@@ -354,6 +390,7 @@ export default function Home() {
                 Download
               </a>
             </div>
+            <SocialLinks variant="footer" />
           </div>
           <p className="text-center text-sm text-[#828282]">
             Not affiliated with any football league or governing body.
