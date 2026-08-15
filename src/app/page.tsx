@@ -96,7 +96,7 @@ export default async function Home() {
           </FadeInSection>
 
           <FadeInSection delay={0.2}>
-            <PhoneFrame className="w-64 sm:w-72 mx-auto aspect-[9/16]">
+            <PhoneFrame className="w-64 sm:w-72 mx-auto aspect-[9/19.2]">
               <VideoFacade />
             </PhoneFrame>
           </FadeInSection>
