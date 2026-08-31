@@ -162,7 +162,7 @@ export default async function Home() {
                 <div className="text-[#00FF87] text-8xl font-bold mb-6">2</div>
                 <h3 className="text-2xl font-bold mb-4">Pick Your Starting 5</h3>
                 <p className="text-[#828282] text-lg">
-                  Choose your lineup each month
+                  Choose your lineup each week
                 </p>
               </div>
             </FadeInSection>
@@ -229,7 +229,7 @@ export default async function Home() {
                     <td className="py-4 px-4 text-center text-[#828282] text-2xl">✗</td>
                   </tr>
                   <tr className="border-b border-[#2A2A2A]">
-                    <td className="py-4 px-4">Monthly squad strategy</td>
+                    <td className="py-4 px-4">Weekly squad strategy</td>
                     <td className="py-4 px-4 text-center text-[#00FF87] text-2xl">✓</td>
                     <td className="py-4 px-4 text-center text-[#828282] text-2xl">✗</td>
                     <td className="py-4 px-4 text-center text-[#828282] text-2xl">✗</td>
