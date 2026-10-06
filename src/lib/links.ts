@@ -20,5 +20,5 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/fantfutbol/' },
   { name: 'TikTok', icon: 'tiktok', url: 'https://www.tiktok.com/@fant.futbol' },
   { name: 'YouTube', icon: 'youtube', url: 'https://www.youtube.com/@FantFutbol/' },
-  { name: 'Discord', icon: 'discord', url: 'https://discord.gg/u64YjhFhM5' },
+  { name: 'Discord', icon: 'discord', url: 'https://discord.gg/cMwr7ZNB2v' },
 ];

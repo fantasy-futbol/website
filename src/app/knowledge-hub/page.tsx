@@ -61,31 +61,31 @@ export default function KnowledgeHubPage() {
               </div>
               <div className="text-[#828282] text-xs mt-2">Response within 24–48 hours</div>
             </a>
+              <a
+                href="https://discord.gg/cMwr7ZNB2v"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#2A2A2A] rounded-2xl p-6 hover:bg-[#333333] transition-colors group"
+              >
+                <div className="text-[#00FF87] text-2xl mb-3">💬</div>
+                <div className="font-semibold mb-1">Discord</div>
+                <div className="text-[#828282] text-sm group-hover:text-[#00FF87] transition-colors">
+                  Join our community
+                </div>
+                <div className="text-[#828282] text-xs mt-2">Chat with the community</div>
+              </a>
             <a
-              href="https://discord.gg/u64YjhFhM5"
+              href="https://x.com/fantfutbol"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#2A2A2A] rounded-2xl p-6 hover:bg-[#333333] transition-colors group"
             >
-              <div className="text-[#00FF87] text-2xl mb-3">💬</div>
-              <div className="font-semibold mb-1">Discord</div>
+              <div className="text-[#00FF87] text-2xl mb-3">🐦</div>
+              <div className="font-semibold mb-1">Twitter</div>
               <div className="text-[#828282] text-sm group-hover:text-[#00FF87] transition-colors">
-                Join our community
+                @fantfutbol
               </div>
-              <div className="text-[#828282] text-xs mt-2">Chat with the community</div>
-            </a>
-            <a
-              href="https://reddit.com/r/fantasyfutbol"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#2A2A2A] rounded-2xl p-6 hover:bg-[#333333] transition-colors group"
-            >
-              <div className="text-[#00FF87] text-2xl mb-3">🔴</div>
-              <div className="font-semibold mb-1">Reddit</div>
-              <div className="text-[#828282] text-sm group-hover:text-[#00FF87] transition-colors">
-                r/fantasyfutbol
-              </div>
-              <div className="text-[#828282] text-xs mt-2">Discuss and get help</div>
+              <div className="text-[#828282] text-xs mt-2">Follow for updates</div>
             </a>
           </div>
         </section>
@@ -212,7 +212,7 @@ export default function KnowledgeHubPage() {
               <li className="flex items-start gap-2">
                 <span className="text-[#00FF87] mt-0.5">•</span>
                 <span>
-                  <strong className="text-white">Reddit:</strong> Post on r/fantasyfutbol
+                  <strong className="text-white">Twitter:</strong> Follow @fantfutbol
                 </span>
               </li>
               <li className="flex items-start gap-2">
