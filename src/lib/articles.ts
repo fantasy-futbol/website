@@ -11,7 +11,7 @@ export const articles: ArticleMeta[] = [
     slug: 'how-fantasy-futbol-works',
     title: 'How Fantasy Fútbol Works',
     category: 'Getting Started',
-    description: 'Draft 10 clubs, pick 5 to start each month, earn points from match results. The manager with the most points wins.',
+    description: 'Draft 10 clubs, pick 5 to start each week, earn points from match results. The manager with the most points wins.',
   },
   {
     slug: 'creating-vs-joining-league',
@@ -29,7 +29,7 @@ export const articles: ArticleMeta[] = [
     slug: 'the-first-month',
     title: 'The First Month: What to Do',
     category: 'Getting Started',
-    description: 'After the draft, your first 5 picks become your Starting 5. Learn the app and prepare for Month 2.',
+    description: 'After the draft, your first 5 picks become your Starting 5. Learn the app and start making a lineup decision each week.',
   },
   // Gameplay
   {
@@ -42,19 +42,19 @@ export const articles: ArticleMeta[] = [
     slug: 'starting-5-vs-bench',
     title: 'Starting 5 vs. Bench',
     category: 'Gameplay',
-    description: 'Only 5 of your 10 teams earn points each month. Choose wisely based on fixtures, competitions, and form.',
+    description: 'Only 5 of your 10 clubs earn points each week. Choose based on fixtures, competitions, and form.',
   },
   {
     slug: 'changing-your-starting-5',
     title: 'Changing Your Starting 5',
     category: 'Gameplay',
-    description: 'Go to My Team, toggle to next month, tap Move then Here. Changes lock at 12:00 AM on the 1st.',
+    description: 'Go to My Team, move to next week, tap Move then Here. Changes lock Monday at 11:59 PM Pacific.',
   },
   {
-    slug: 'the-monthly-lock',
-    title: 'The Monthly Lock',
+    slug: 'the-weekly-lock',
+    title: 'The Weekly Lock',
     category: 'Gameplay',
-    description: 'Your Starting 5 locks at 12:00 AM on the 1st of each month. No changes until next month.',
+    description: 'Your Starting 5 locks every Monday at 11:59 PM Pacific. Each week runs Tuesday through the following Monday.',
   },
   {
     slug: 'competition-types',

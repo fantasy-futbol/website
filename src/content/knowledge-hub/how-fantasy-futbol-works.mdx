@@ -1,10 +1,10 @@
 ---
 title: "How Fantasy Fútbol Works"
 category: "Getting Started"
-description: "Draft 10 European clubs, pick 5 to start each month, earn points when they win and score. The manager with the most points wins."
+description: "Draft 10 European clubs, pick 5 to start each week, earn points when they win and score. The manager with the most points wins."
 ---
 
-**The Short Answer:** Draft 10 European soccer clubs, choose 5 to start each month, earn points when they win matches and score goals. The manager with the most points at the end of the season wins.
+**The Short Answer:** Draft 10 European soccer clubs, choose 5 to start each week, earn points when they win matches and score goals. The manager with the most points at the end of the season wins.
 
 ---
 
@@ -17,7 +17,6 @@ Fantasy Fútbol isn't like other fantasy soccer games.
 | Draft individual players | Draft entire clubs |
 | Only league matches count | All matches count — league, cup, Europe |
 | One league (usually Premier League) | All Big 5 leagues in one game |
-| Weekly lineup changes | Monthly lineup changes |
 | Points from player stats (goals, assists, clean sheets) | Points from team results (wins, draws, goal differential) |
 
 We built this game because nothing else covers European soccer the way fans actually experience it — across leagues, across competitions, across the entire season.
@@ -30,16 +29,16 @@ We built this game because nothing else covers European soccer the way fans actu
 Get 3-12 friends together. One person creates the league, everyone else joins using a League ID.
 
 ### 2. Draft Your Teams
-Before the season, you and your leaguemates take turns drafting clubs from Europe's Big 5 leagues. You end up with 10 teams on your roster.
+You and your leaguemates take turns drafting clubs from Europe's Big 5 leagues. You end up with 10 teams on your roster.
 
 ### 3. Set Your Starting 5
-Each month, choose 5 of your 10 teams to be your starters. Only starters earn you points.
+Each week, choose 5 of your 10 teams to be your starters. Only starters earn you points.
 
 ### 4. Watch and Win
 Your starting teams play their real-world matches. You earn points from their goals and results. Track your progress on the League Table.
 
-### 5. Adjust Monthly
-Before each new month, you can swap teams between your Starting 5 and bench based on upcoming fixtures.
+### 5. Adjust Weekly
+Before each new week, you can swap teams between your Starting 5 and bench based on upcoming fixtures. If you change nothing, your lineup carries forward.
 
 ### 6. Crown a Champion
 At the end of the season, the manager with the most total points wins the league.
@@ -56,9 +55,9 @@ Fantasy Fútbol covers the top division of Europe's five biggest soccer nations:
 | La Liga | Spain 🇪🇸 | 20 |
 | Bundesliga | Germany 🇩🇪 | 18 |
 | Serie A | Italy 🇮🇹 | 20 |
-| Ligue 1 | France 🇫🇷 | 20 |
+| Ligue 1 | France 🇫🇷 | 18 |
 
-**Total: 98 teams** available to draft.
+**Total: 96 teams** available to draft.
 
 These leagues represent the pinnacle of club soccer. The best players, the richest clubs, the most prestigious competitions — all in one game.
 
@@ -113,7 +112,7 @@ That same Liverpool 3-1 win in the Premier League adds **+3 MRP**.
 
 ## The Draft
 
-Before the season begins, your league holds a draft.
+Your league holds a draft to hand out the clubs.
 
 **How it works:**
 - Snake draft format (order reverses each round)
@@ -122,7 +121,7 @@ Before the season begins, your league holds a draft.
 
 **What you're building:**
 - A roster of 10 teams from across the Big 5
-- 5 will start each month (earning points)
+- 5 will start each week (earning points)
 - 5 will sit on your bench (not earning points, but available to swap in)
 
 The draft is where seasons are won and lost. Elite teams go early. Hidden gems get snagged in the middle rounds. Strategy matters.
@@ -135,20 +134,20 @@ The draft is where seasons are won and lost. Elite teams go early. Hidden gems g
 
 You draft 10 teams, but only 5 earn you points at a time.
 
-**Before each month**, you choose:
+**Before each week**, you choose:
 - **Starting 5** — These teams' matches count toward your score
 - **Bench (5 teams)** — These teams play, but their results don't count for you
 
 **Why this system?**
 
-It creates strategy. Not every month is equal for every team:
-- Some teams have 8 matches in December, others have 4
+It creates strategy. Not every week is equal for every team:
+- Some teams play twice in a week, others once, others not at all
 - Some teams face easy opponents, others face killers
-- Some teams are in Europe, others aren't
+- Some teams have a European night or a cup tie, others don't
 
 Smart managers read the fixture list and start the right teams at the right time.
 
-**Once the month begins, your lineup is locked.** No changes until next month.
+**A week runs Tuesday through the following Monday. Your lineup locks every Monday at 11:59 PM Pacific**, and can't be changed once the week is under way.
 
 → *Full details: [Starting 5 vs. Bench](/knowledge-hub/starting-5-vs-bench)*
 
@@ -163,12 +162,12 @@ Smart managers read the fixture list and start the right teams at the right time
 
 ### September – December
 - Full fixture congestion
-- League + Cup + European group stages
-- Monthly Starting 5 decisions
+- League + Cup + European league phase
+- A Starting 5 decision every week
 
 ### January
 - Transfer window (real-world, doesn't affect your roster)
-- European group stages conclude
+- European league phase concludes
 - Cup competitions heat up
 
 ### February – April
@@ -188,7 +187,7 @@ Smart managers read the fixture list and start the right teams at the right time
 
 The manager with the most total points at the end of the season wins.
 
-Your total points = the sum of all points earned by your Starting 5 across every month.
+Your total points = the sum of all points earned by your Starting 5 across every week.
 
 It's a marathon, not a sprint. One huge week won't win you the title. Consistent performance across 9 months will.
 
@@ -206,8 +205,10 @@ If managers are tied on points:
 | Concept | What It Means |
 |---------|---------------|
 | **Roster** | Your 10 drafted teams |
-| **Starting 5** | The 5 teams earning you points this month |
-| **Bench** | The 5 teams not earning you points this month |
+| **Starting 5** | The 5 teams earning you points this week |
+| **Bench** | The 5 teams not earning you points this week |
+| **Week** | Tuesday through the following Monday |
+| **Weekly Lock** | Monday 11:59 PM Pacific, when next week's lineup is set |
 | **Goal Differential (GD)** | Goals scored minus goals conceded |
 | **Match Result Points (MRP)** | Points from wins and draws |
 | **League Table** | Manager standings — who's winning your league |
@@ -216,22 +217,20 @@ If managers are tied on points:
 
 ---
 
-## What You'll Do Each Month
+## What You'll Do Each Week
 
-### Week Before the Month Starts
+### Before Monday Night
 1. Check your teams' upcoming fixtures
 2. Compare your Starting 5 vs. Bench
 3. Make any swaps before the lock
 
-### During the Month
+### Tuesday Through Monday
 1. Watch your teams play (or check results)
 2. Track your points on the League Table
-3. Scout upcoming fixtures for next month
+3. Scout next week's fixtures
 
-### After the Month Ends
-1. Review how your Starting 5 performed
-2. See the updated League Table
-3. Prepare for next month's lineup decision
+### No Time This Week?
+Do nothing. Your lineup carries forward automatically.
 
 ---
 
@@ -258,6 +257,7 @@ Welcome to the league.
 - [Creating vs. Joining a League](/knowledge-hub/creating-vs-joining-league) — Get into a league
 - [The Draft Explained](/knowledge-hub/the-draft-explained) — Build your roster
 - [How Points Are Scored](/knowledge-hub/how-points-are-scored) — Understand the scoring system
-- [Starting 5 vs. Bench](/knowledge-hub/starting-5-vs-bench) — Master the monthly decision
+- [Starting 5 vs. Bench](/knowledge-hub/starting-5-vs-bench) — Master the weekly decision
+- [The Weekly Lock](/knowledge-hub/the-weekly-lock) — When lineups lock
 - [Competition Types](/knowledge-hub/competition-types) — Know what counts
 - [Understanding the Tables](/knowledge-hub/understanding-the-tables) — Track your progress
