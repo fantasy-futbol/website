@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { articles, categories, getArticlesByCategory } from '@/lib/articles';
-import StaleCopyNotice from '@/components/StaleCopyNotice';
 
 export const metadata: Metadata = {
   title: 'Support — Fantasy Fútbol',
@@ -161,7 +160,6 @@ export default function KnowledgeHubPage() {
 
         {/* Knowledge Hub */}
         <section className="mb-16">
-          <StaleCopyNotice />
           <h2 className="text-2xl font-bold mb-2 pl-4 border-l-4 border-[#00FF87]">Knowledge Hub</h2>
           <p className="text-[#828282] mb-8 pl-5">
             Looking for more detailed guides? Browse our full Knowledge Hub below.

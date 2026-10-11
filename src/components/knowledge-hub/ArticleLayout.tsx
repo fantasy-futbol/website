@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import StaleCopyNotice from '@/components/StaleCopyNotice';
 
 interface ArticleFrontmatter {
   title: string;
@@ -55,7 +54,6 @@ export default function ArticleLayout({ frontmatter, children }: ArticleLayoutPr
 
       {/* Article header */}
       <header className="max-w-3xl mx-auto px-6 pt-6 pb-8">
-        <StaleCopyNotice />
         <div className="mb-4">
           <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full ${badgeClass}`}>
             {frontmatter.category}
